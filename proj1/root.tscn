@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8qijqy8m483y"]
+
+[ext_resource type="PackedScene" uid="uid://pgswmj3xecf6" path="res://platform.tscn" id="1_7alx0"]
+[ext_resource type="Script" path="res://root.gd" id="1_881rc"]
+[ext_resource type="PackedScene" uid="uid://bsmjrna55rws3" path="res://ball.tscn" id="2_jshbo"]
+
+[node name="root" type="Node2D"]
+position = Vector2(7, -7)
+script = ExtResource("1_881rc")
+
+[node name="platforms" type="Node2D" parent="."]
+
+[node name="platform1" parent="platforms" instance=ExtResource("1_7alx0")]
+
+[node name="platform2" parent="platforms" instance=ExtResource("1_7alx0")]
+position = Vector2(477, 627)
+rotation = 0.261799
+
+[node name="platform3" parent="platforms" instance=ExtResource("1_7alx0")]
+position = Vector2(386, 589)
+rotation = 0.523598
+
+[node name="platform4" parent="platforms" instance=ExtResource("1_7alx0")]
+position = Vector2(307, 528)
+rotation = 0.785397
+
+[node name="platform5" parent="platforms" instance=ExtResource("1_7alx0")]
+position = Vector2(675, 627)
+rotation = -0.261799
+
+[node name="platform6" parent="platforms" instance=ExtResource("1_7alx0")]
+position = Vector2(767, 589)
+rotation = -0.523599
+
+[node name="platform7" parent="platforms" instance=ExtResource("1_7alx0")]
+position = Vector2(846, 528)
+rotation = -0.785398
+
+[node name="balls" type="Node2D" parent="."]
+
+[node name="ball1" parent="balls" instance=ExtResource("2_jshbo")]
+position = Vector2(576, 576)
+
+[node name="ball2" parent="balls" instance=ExtResource("2_jshbo")]
+position = Vector2(459, 526)
+
+[node name="ball3" parent="balls" instance=ExtResource("2_jshbo")]
+position = Vector2(691, 526)
