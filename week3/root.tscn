@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://cppqf03cubuen"]
+
+[ext_resource type="PackedScene" uid="uid://blkp311wt1kp4" path="res://platform.tscn" id="1_5105d"]
+[ext_resource type="Script" path="res://root.gd" id="1_jk0dl"]
+[ext_resource type="PackedScene" uid="uid://dm2bniebxu1ya" path="res://ball.tscn" id="2_pqwq8"]
+[ext_resource type="PackedScene" uid="uid://b03016drjj7j" path="res://windmill.tscn" id="3_mypmm"]
+
+[node name="root" type="Node2D"]
+script = ExtResource("1_jk0dl")
+
+[node name="platforms" type="Node2D" parent="."]
+
+[node name="platform1" parent="platforms" instance=ExtResource("1_5105d")]
+position = Vector2(578, 607)
+
+[node name="platform2" parent="platforms" instance=ExtResource("1_5105d")]
+position = Vector2(480, 589)
+rotation = 3.50003
+
+[node name="platform3" parent="platforms" instance=ExtResource("1_5105d")]
+position = Vector2(395, 539)
+rotation = 0.736529
+
+[node name="platform4" parent="platforms" instance=ExtResource("1_5105d")]
+position = Vector2(335, 460)
+rotation = 1.12776
+
+[node name="platform5" parent="platforms" instance=ExtResource("1_5105d")]
+position = Vector2(674, 587)
+rotation = -0.412866
+
+[node name="platform6" parent="platforms" instance=ExtResource("1_5105d")]
+position = Vector2(758, 533)
+rotation = -0.732596
+
+[node name="platform7" parent="platforms" instance=ExtResource("1_5105d")]
+position = Vector2(821, 457)
+rotation = -1.03
+
+[node name="balls" type="Node2D" parent="."]
+
+[node name="ball1" parent="balls" instance=ExtResource("2_pqwq8")]
+position = Vector2(573, 81)
+
+[node name="ball2" parent="balls" instance=ExtResource("2_pqwq8")]
+position = Vector2(518, 80)
+
+[node name="ball3" parent="balls" instance=ExtResource("2_pqwq8")]
+position = Vector2(629, 78)
+
+[node name="ball4" parent="balls" instance=ExtResource("2_pqwq8")]
+position = Vector2(539, 26)
+
+[node name="ball5" parent="balls" instance=ExtResource("2_pqwq8")]
+position = Vector2(596, 25)
+
+[node name="windmills" type="Node2D" parent="."]
+
+[node name="windmill1" parent="windmills" instance=ExtResource("3_mypmm")]
+position = Vector2(575, 253)
+
+[node name="windmill2" parent="windmills" instance=ExtResource("3_mypmm")]
+position = Vector2(794, 252)
+
+[node name="windmill3" parent="windmills" instance=ExtResource("3_mypmm")]
+position = Vector2(356, 257)

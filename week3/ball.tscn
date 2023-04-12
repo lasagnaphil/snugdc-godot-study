@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm2bniebxu1ya"]
+
+[ext_resource type="Script" path="res://ball.gd" id="1_vabvp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o8sh3"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yysmi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x7is5"]
+radius = 25.0
+
+[node name="ball" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_o8sh3")
+script = ExtResource("1_vabvp")
+
+[node name="mesh" type="MeshInstance2D" parent="."]
+scale = Vector2(50, 50)
+mesh = SubResource("SphereMesh_yysmi")
+
+[node name="collision_shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x7is5")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

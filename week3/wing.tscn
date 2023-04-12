@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfqwgienrj0e1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wjqb1"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_3fbpy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xdsy"]
+size = Vector2(200, 10)
+
+[node name="wing" type="AnimatableBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_wjqb1")
+sync_to_physics = false
+
+[node name="mesh" type="MeshInstance2D" parent="."]
+scale = Vector2(200, 10)
+mesh = SubResource("QuadMesh_3fbpy")
+
+[node name="collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4xdsy")
