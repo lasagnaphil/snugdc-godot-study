@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dm2bniebxu1ya"]
+[gd_scene load_steps=6 format=3 uid="uid://dm2bniebxu1ya"]
 
 [ext_resource type="Script" path="res://ball.gd" id="1_vabvp"]
+[ext_resource type="AudioStream" uid="uid://bjkje8bxbfdiv" path="res://marble_collision.wav" id="2_53iea"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_o8sh3"]
 
@@ -10,7 +11,10 @@
 radius = 25.0
 
 [node name="ball" type="RigidBody2D"]
+input_pickable = true
 physics_material_override = SubResource("PhysicsMaterial_o8sh3")
+max_contacts_reported = 10
+contact_monitor = true
 script = ExtResource("1_vabvp")
 
 [node name="mesh" type="MeshInstance2D" parent="."]
@@ -20,4 +24,8 @@ mesh = SubResource("SphereMesh_yysmi")
 [node name="collision_shape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_x7is5")
 
+[node name="collide_sound_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_53iea")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]

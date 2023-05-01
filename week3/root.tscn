@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cppqf03cubuen"]
+[gd_scene load_steps=6 format=3 uid="uid://cppqf03cubuen"]
 
 [ext_resource type="PackedScene" uid="uid://blkp311wt1kp4" path="res://platform.tscn" id="1_5105d"]
 [ext_resource type="Script" path="res://root.gd" id="1_jk0dl"]
 [ext_resource type="PackedScene" uid="uid://dm2bniebxu1ya" path="res://ball.tscn" id="2_pqwq8"]
 [ext_resource type="PackedScene" uid="uid://b03016drjj7j" path="res://windmill.tscn" id="3_mypmm"]
+[ext_resource type="AudioStream" uid="uid://bjkje8bxbfdiv" path="res://marble_collision.wav" id="5_tvvid"]
 
 [node name="root" type="Node2D"]
 script = ExtResource("1_jk0dl")
@@ -64,3 +65,6 @@ position = Vector2(794, 252)
 
 [node name="windmill3" parent="windmills" instance=ExtResource("3_mypmm")]
 position = Vector2(356, 257)
+
+[node name="marble_collision_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tvvid")

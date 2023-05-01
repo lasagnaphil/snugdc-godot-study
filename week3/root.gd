@@ -9,3 +9,11 @@ func _input(event):
 			ball.position = get_global_mouse_position()
 			add_child(ball)
 			print("ball created!")
+
+func _process(delta):
+	var screen_size = get_viewport_rect().size
+	var balls = $balls.get_children()
+	for ball in balls:
+		if ball.position.x < 0 || ball.position.x > screen_size.x || ball.position.y < 0 || ball.position.y > screen_size.y:
+			ball.queue_free()
+			print("ball destroyed!")
