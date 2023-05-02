@@ -7,7 +7,7 @@ func _input(event):
 		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 			var ball = ball_scene.instantiate()
 			ball.position = get_global_mouse_position()
-			add_child(ball)
+			$balls.add_child(ball)
 			print("ball created!")
 
 func _process(delta):
