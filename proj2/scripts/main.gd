@@ -1,6 +1,7 @@
 extends Node
 
 @export var mob_scene: PackedScene
+@export var bullet_scene: PackedScene
 var score
 
 func game_over():
@@ -30,6 +31,8 @@ func _on_start_timer_timeout():
 func _on_mob_timer_timeout():
 	var mob = mob_scene.instantiate()
 	
+	mob.bullet_hit.connect(_on_mob_hit)
+	
 	var mob_spawn_location = $MobPath/MobSpawnLocation
 	mob_spawn_location.progress_ratio = randf()
 	
@@ -47,3 +50,13 @@ func _on_mob_timer_timeout():
 
 func _on_player_hit():
 	game_over()
+
+func _on_player_create_bullet(position, velocity):
+	var bullet = bullet_scene.instantiate()
+	bullet.position = position
+	bullet.linear_velocity = velocity
+	add_child(bullet)
+	
+func _on_mob_hit():
+	score += 10
+	$HUD.update_score(score)

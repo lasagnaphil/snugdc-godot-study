@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbiubf3oatp4w"]
+[gd_scene load_steps=12 format=3 uid="uid://cbiubf3oatp4w"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_cnhxp"]
 [ext_resource type="PackedScene" uid="uid://u78nar5nbb6b" path="res://scenes/player.tscn" id="1_kkpdb"]
 [ext_resource type="PackedScene" uid="uid://cchvqah8wee32" path="res://scenes/mob.tscn" id="2_c0xgp"]
+[ext_resource type="PackedScene" uid="uid://cjwe1dsjut8u6" path="res://scenes/bullet.tscn" id="3_51uja"]
 [ext_resource type="AudioStream" uid="uid://dba2m0nst2rmp" path="res://art/House In a Forest Loop.ogg" id="3_nc10e"]
 [ext_resource type="AudioStream" uid="uid://caoikejdlv6wx" path="res://art/gameover.wav" id="4_ey711"]
 [ext_resource type="FontFile" uid="uid://bat3xhgph5eg5" path="res://fonts/Xolonium-Regular.ttf" id="4_kln8d"]
@@ -23,6 +24,7 @@ events = [SubResource("InputEventAction_y7chg")]
 [node name="Main" type="Node"]
 script = ExtResource("1_cnhxp")
 mob_scene = ExtResource("2_c0xgp")
+bullet_scene = ExtResource("3_51uja")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -114,6 +116,7 @@ text = "Start"
 wait_time = 2.0
 one_shot = true
 
+[connection signal="create_bullet" from="Player" to="." method="_on_player_create_bullet"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
