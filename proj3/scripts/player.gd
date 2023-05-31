@@ -42,7 +42,7 @@ func _physics_process(delta):
 		var collision = get_slide_collision(index)
 		var collider = collision.get_collider()
 		
-		if not collider:
+		if collider == null:
 			continue
 			
 		if collider.is_in_group("mob"):
